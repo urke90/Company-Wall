@@ -22,6 +22,8 @@
     "baseUrl": ".",
     "paths": {
       "src/*": ["src/*"]
+      // "@libs/*": ["/src/libs/*"],
+      // "@router/*": ["/src/router/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
