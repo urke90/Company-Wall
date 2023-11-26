@@ -9,8 +9,10 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      src: '/src',
-      '@pages': '/src/pages'
+      src: '/src'
+      // '@pages': '/src/pages',
+      // '@router': '/src/router',
+      // '@libs': '/src/libs'
     }
   }
 });
