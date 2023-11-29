@@ -22,5 +22,3 @@ export const Iconify = forwardRef<SVGElement, IIconifyProps>(
     />
   )
 );
-
-export default Iconify;

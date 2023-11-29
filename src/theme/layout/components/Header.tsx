@@ -9,9 +9,8 @@ import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
-import Iconify from 'src/components/icons/Iconify';
-import { Navlink } from '@components/shared/links';
-import { ICON_NAMES } from '@components/icons';
+import { Navlink } from '@components/links';
+import { Iconify, ICON_NAMES } from '@components/icons';
 
 // ----------------------------------------------------------------
 

@@ -22,8 +22,11 @@ export const router = createBrowserRouter([
       {
         path: 'roles',
         element: <Roles />
+      },
+      {
+        path: '*',
+        element: <Error />
       }
-    ],
-    errorElement: <Error />
+    ]
   }
 ]);
