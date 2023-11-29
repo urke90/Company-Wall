@@ -1,4 +1,4 @@
-import Iconify from '@components/icons';
+import { Iconify } from '@components/icons/Iconify';
 import { Stack, Typography, useTheme } from '@mui/material';
 import { NavLink as MuiNavLink } from 'react-router-dom';
 
