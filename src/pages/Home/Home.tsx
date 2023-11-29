@@ -1,10 +1,13 @@
-interface IHomeProps {}
+import Box from '@mui/material/Box';
+import Typogrphy from '@mui/material/Typography';
 
-const Home: React.FC<IHomeProps> = (props) => {
+const Home: React.FC = () => {
   return (
-    <div>
-      <h1>Welcome dear customers</h1>
-    </div>
+    <Box sx={{ mt: 10 }}>
+      <Typogrphy textAlign="center" variant="h2">
+        Welcome Dear Customers
+      </Typogrphy>
+    </Box>
   );
 };
 
