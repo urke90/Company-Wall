@@ -21,9 +21,12 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "src/*": ["src/*"]
-      // "@libs/*": ["/src/libs/*"],
-      // "@router/*": ["/src/router/*"]
+      // "@src/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@libs/*": ["/src/libs/*"],
+      "@pages/*": ["/src/pages/*"],
+      "@router/*": ["/src/router/*"],
+      "@config/*": ["/src/config/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],

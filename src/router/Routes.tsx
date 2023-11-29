@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import Layout from 'src/components/layout';
+import Layout from 'src/theme/layout/Layout';
 import Home from 'src/pages/Home/Home';
-import Users from 'src/pages/Users';
-import Roles from 'src/pages/Roles';
-import Error from 'src/pages/Error';
+import Users from 'src/pages/Users/Users';
+import Roles from 'src/pages/Roles/Roles';
+import Error from 'src/pages/Error/Error';
 
 export const router = createBrowserRouter([
   {

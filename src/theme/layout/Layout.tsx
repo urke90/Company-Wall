@@ -1,13 +1,15 @@
 import { Outlet } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import { Header } from './components';
 
 interface ILayoutProps {}
 
 const Layout: React.FC<ILayoutProps> = (props) => {
   return (
-    <div>
-      <h1>Layout Component</h1>
+    <Box>
+      <Header />
       <Outlet />
-    </div>
+    </Box>
   );
 };
 

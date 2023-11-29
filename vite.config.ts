@@ -9,7 +9,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      src: '/src'
+      src: '/src',
+      '@components': '/src/components'
       // '@pages': '/src/pages',
       // '@router': '/src/router',
       // '@libs': '/src/libs'
