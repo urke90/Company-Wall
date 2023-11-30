@@ -23,10 +23,10 @@
     "paths": {
       // "@src/*": ["src/*"],
       "@components/*": ["src/components/*"],
-      "@libs/*": ["/src/libs/*"],
-      "@pages/*": ["/src/pages/*"],
+      "@libs/*": ["src/libs/*"],
+      "@pages/*": ["src/pages/*"],
       "@router/*": ["/src/router/*"],
-      "@config/*": ["/src/config/*"]
+      "@config/*": ["src/config/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],

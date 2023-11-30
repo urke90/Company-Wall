@@ -10,10 +10,11 @@ export default defineConfig({
   resolve: {
     alias: {
       src: '/src',
-      '@components': '/src/components'
-      // '@pages': '/src/pages',
-      // '@router': '/src/router',
-      // '@libs': '/src/libs'
+      '@components': '/src/components',
+      '@pages': '/src/pages',
+      '@router': '/src/router',
+      '@libs': '/src/libs',
+      '@config': '/src/config'
     }
   }
 });

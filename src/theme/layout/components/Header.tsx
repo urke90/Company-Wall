@@ -10,42 +10,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
 import { Navlink } from '@components/links';
+import { NAV_CONFIG } from '@config/navigation';
 import { Iconify, ICON_NAMES } from '@components/icons';
 
 // ----------------------------------------------------------------
-
-export interface INavConfig {
-  /**
-   * text to be displayed for nav items
-   */
-  text: string;
-  /**
-   * path(url) to the page
-   */
-  path: string;
-  /**
-   * icon to display on button
-   */
-  icon: string;
-}
-
-const NAV_CONFIG: INavConfig[] = [
-  {
-    text: 'Home',
-    path: '/',
-    icon: ICON_NAMES.home
-  },
-  {
-    text: 'Users',
-    path: 'users',
-    icon: ICON_NAMES.users
-  },
-  {
-    text: 'Roles',
-    path: 'roles',
-    icon: ICON_NAMES.roles
-  }
-];
 
 export const Header: React.FC = () => {
   const [anchorMenuEl, setAnchorMenuEl] = useState<null | HTMLElement>(null);
