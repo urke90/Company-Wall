@@ -1,11 +1,19 @@
 import { ICON_NAMES } from '@components/icons';
 
+// ----------------------------------------------------------------
+
 export interface INavConfig {
-  /** text to be displayed for nav items */
+  /**
+   * text to be displayed for nav items
+   */
   text: string;
-  /** path(url) to the page */
+  /**
+   * path(url) to the page
+   */
   path: string;
-  /** icon to display on button */
+  /**
+   * icon to display on button
+   */
   icon: string;
 }
 

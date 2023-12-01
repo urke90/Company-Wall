@@ -4,11 +4,17 @@ import { Iconify } from '@components/icons';
 // ----------------------------------------------------------------
 
 interface IIconButtonProps extends ButtonProps {
-  /** The icon name as a string. */
+  /**
+   * The icon name as a string.
+   */
   icon: string;
-  /** Optional width of the icon. */
+  /**
+   * Optional width of the icon.
+   */
   iconWidth?: number;
-  /** Children elements to be rendered inside the button. */
+  /**
+   * Children elements to be rendered inside the button.
+   */
   children: React.ReactNode;
 }
 
@@ -36,6 +42,12 @@ export const IconLeftButton: React.FC<IIconButtonProps> = ({
   );
 };
 
+/**
+ * Component for rendering a button with an icon on the right.
+ *
+ * @param {IIconButtonProps} props - The properties of the IconRightButton.
+ * @returns {JSX.Element} The IconRightButton component.
+ */
 export const IconRightButton: React.FC<IIconButtonProps> = ({
   icon,
   iconWidth = 20,

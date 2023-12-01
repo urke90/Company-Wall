@@ -1,6 +1,11 @@
-import { Iconify } from '@components/icons/Iconify';
+// mui
 import { Stack, Typography, useTheme } from '@mui/material';
-import { NavLink as MuiNavLink } from 'react-router-dom';
+// react router
+import { NavLink as RouterNavLink } from 'react-router-dom';
+// components
+import { Iconify } from '@components/icons/Iconify';
+
+// ----------------------------------------------------------------------
 
 interface INavLinkProps {
   /**
@@ -8,7 +13,7 @@ interface INavLinkProps {
    */
   text: string;
   /**
-   * path(url) to the page
+   * path (url) to the page
    */
   path: string;
   /**
@@ -17,17 +22,29 @@ interface INavLinkProps {
   icon: string;
 }
 
+/**
+ * NavLink Component
+ *
+ * This component creates a navigation link using Material-UI and react-router-dom.
+ * It displays an icon and a text in a flexible box layout.
+ *
+ * The NavLink changes its background color when it is active.
+ *
+ * @param {INavLinkProps} props - The properties passed to the component.
+ * @returns {JSX.Element} A rendered navigation link element.
+ */
 export const Navlink: React.FC<INavLinkProps> = ({ icon, path, text }) => {
   const theme = useTheme();
+  console.log('theme', theme);
 
   return (
-    <MuiNavLink
+    <RouterNavLink
       to={path}
       style={({ isActive }) => {
         return {
           display: 'block',
           textDecoration: 'none',
-          color: 'black',
+          color: theme.palette.common.black,
           backgroundColor: isActive ? theme.palette.grey[400] : '',
           padding: '6px 16px '
         };
@@ -42,6 +59,6 @@ export const Navlink: React.FC<INavLinkProps> = ({ icon, path, text }) => {
         <Iconify icon={icon} sx={{ mr: 1 }} />
         <Typography>{text}</Typography>
       </Stack>
-    </MuiNavLink>
+    </RouterNavLink>
   );
 };
