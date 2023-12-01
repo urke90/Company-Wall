@@ -14,7 +14,8 @@ export default defineConfig({
       '@pages': '/src/pages',
       '@router': '/src/router',
       '@libs': '/src/libs',
-      '@config': '/src/config'
+      '@config': '/src/config',
+      '@theme': '/src/theme'
     }
   }
 });

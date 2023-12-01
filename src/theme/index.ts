@@ -1,1 +1,2 @@
-export { default } from './Theme';
+export * from './ThemeProvider';
+export * from './layout';

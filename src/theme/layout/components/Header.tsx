@@ -8,7 +8,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-
+// components
 import { Navlink } from '@components/links';
 import { NAV_LINK_CONFIG } from '@config/navigation';
 import { Iconify, ICON_NAMES } from '@components/icons';
@@ -18,11 +18,11 @@ import { Iconify, ICON_NAMES } from '@components/icons';
 export const Header: React.FC = () => {
   const [anchorMenuEl, setAnchorMenuEl] = useState<null | HTMLElement>(null);
 
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorMenuEl(event.currentTarget);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseNavMenu = () => {
     setAnchorMenuEl(null);
   };
 
@@ -48,7 +48,7 @@ export const Header: React.FC = () => {
             Company Wall
           </Typography>
           <Box sx={{ flexGrow: 0 }}>
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+            <IconButton onClick={handleOpenNavMenu} sx={{ p: 0 }}>
               <Iconify
                 icon={ICON_NAMES.menu}
                 width={40}
@@ -69,14 +69,10 @@ export const Header: React.FC = () => {
                 horizontal: 'right'
               }}
               open={Boolean(anchorMenuEl)}
-              onClose={handleCloseUserMenu}
+              onClose={handleCloseNavMenu}
             >
               {NAV_LINK_CONFIG.map(({ icon, path, text }) => (
-                <MenuItem
-                  key={path}
-                  onClick={handleCloseUserMenu}
-                  sx={{ p: 0 }}
-                >
+                <MenuItem key={path} onClick={handleCloseNavMenu} sx={{ p: 0 }}>
                   <Navlink icon={icon} path={path} text={text} />
                 </MenuItem>
               ))}

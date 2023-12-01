@@ -4,10 +4,8 @@ import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-
 // config
 import { LINK_CONFIG } from '@config/navigation';
-
 // components
 import { BasicCard } from '@components/cards';
 import { IconLeftButton } from '@components/buttons';
@@ -20,7 +18,7 @@ import { IconLeftButton } from '@components/buttons';
  *
  * @returns {JSX.Element} The rendered component.
  */
-const Error: React.FC = () => {
+export const Error: React.FC = () => {
   return (
     <Box
       sx={{
@@ -73,5 +71,3 @@ const CardActions = () => {
     </Stack>
   );
 };
-
-export default Error;

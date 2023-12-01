@@ -1,12 +1,16 @@
+// react router
 import { Outlet } from 'react-router-dom';
+// mui
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-
+// components
 import { Header } from './components';
+
+// ----------------------------------------------------------------
 
 interface ILayoutProps {}
 
-const Layout: React.FC<ILayoutProps> = (props) => {
+export const Layout: React.FC<ILayoutProps> = (props) => {
   return (
     <Box>
       <Header />
@@ -16,5 +20,3 @@ const Layout: React.FC<ILayoutProps> = (props) => {
     </Box>
   );
 };
-
-export default Layout;
