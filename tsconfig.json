@@ -25,7 +25,7 @@
       "@components/*": ["src/components/*"],
       "@libs/*": ["src/libs/*"],
       "@pages/*": ["src/pages/*"],
-      "@router/*": ["/src/router/*"],
+      "@router/*": ["src/router/*"],
       "@config/*": ["src/config/*"]
     }
   },

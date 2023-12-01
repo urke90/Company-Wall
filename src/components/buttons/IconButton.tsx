@@ -1,9 +1,11 @@
 import MuiButton, { ButtonProps } from '@mui/material/Button';
 import { Iconify } from '@components/icons';
 
+// ----------------------------------------------------------------
+
 interface IIconButtonProps extends ButtonProps {
   /** The icon name as a string. */
-  icon: 'string';
+  icon: string;
   /** Optional width of the icon. */
   iconWidth?: number;
   /** Children elements to be rendered inside the button. */
@@ -19,10 +21,16 @@ interface IIconButtonProps extends ButtonProps {
 export const IconLeftButton: React.FC<IIconButtonProps> = ({
   icon,
   iconWidth = 20,
-  children
+  children,
+  sx,
+  ...rest
 }) => {
   return (
-    <MuiButton startIcon={<Iconify icon={icon} width={iconWidth} />}>
+    <MuiButton
+      startIcon={<Iconify icon={icon} width={iconWidth} />}
+      sx={{ width: 1, ...sx }}
+      {...rest}
+    >
       {children}
     </MuiButton>
   );
@@ -31,10 +39,16 @@ export const IconLeftButton: React.FC<IIconButtonProps> = ({
 export const IconRightButton: React.FC<IIconButtonProps> = ({
   icon,
   iconWidth = 20,
-  children
+  children,
+  sx,
+  ...rest
 }) => {
   return (
-    <MuiButton endIcon={<Iconify icon={icon} width={iconWidth} />}>
+    <MuiButton
+      endIcon={<Iconify icon={icon} width={iconWidth} />}
+      sx={{ width: 1, ...sx }}
+      {...rest}
+    >
       {children}
     </MuiButton>
   );

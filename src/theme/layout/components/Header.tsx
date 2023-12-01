@@ -10,7 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
 import { Navlink } from '@components/links';
-import { NAV_CONFIG } from '@config/navigation';
+import { NAV_LINK_CONFIG } from '@config/navigation';
 import { Iconify, ICON_NAMES } from '@components/icons';
 
 // ----------------------------------------------------------------
@@ -71,7 +71,7 @@ export const Header: React.FC = () => {
               open={Boolean(anchorMenuEl)}
               onClose={handleCloseUserMenu}
             >
-              {NAV_CONFIG.map(({ icon, path, text }) => (
+              {NAV_LINK_CONFIG.map(({ icon, path, text }) => (
                 <MenuItem
                   key={path}
                   onClick={handleCloseUserMenu}

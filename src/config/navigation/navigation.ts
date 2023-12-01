@@ -9,7 +9,7 @@ export interface INavConfig {
   icon: string;
 }
 
-export const NAV_CONFIG: INavConfig[] = [
+export const NAV_LINK_CONFIG: INavConfig[] = [
   {
     text: 'Home',
     path: '/',
@@ -23,6 +23,24 @@ export const NAV_CONFIG: INavConfig[] = [
   {
     text: 'Roles',
     path: 'roles',
+    icon: ICON_NAMES.roles
+  }
+];
+
+export const LINK_CONFIG: INavConfig[] = [
+  {
+    text: 'Home',
+    path: '/',
+    icon: ICON_NAMES.home
+  },
+  {
+    text: 'Users',
+    path: '/users',
+    icon: ICON_NAMES.users
+  },
+  {
+    text: 'Roles',
+    path: '/roles',
     icon: ICON_NAMES.roles
   }
 ];
