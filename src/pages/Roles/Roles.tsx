@@ -1,21 +1,31 @@
 // mui
 import Box from '@mui/material/Box';
 // components
-import { BasicPaginationTable, TableBodyComponent } from '@components/tables';
+import {
+  BasicPaginationTable,
+  TableBodyComponent,
+  TableSkeleton
+} from '@components/tables';
 // config
 import { ROLES_TABLE_HEAD_LABELS } from '@config/table-head-labels';
 // hooks
 import { useRolesPagination } from '@/hooks';
+import { Table, TableBody } from '@mui/material';
 
 export const Roles: React.FC = () => {
   const { data } = useRolesPagination();
 
   return (
     <Box>
-      <BasicPaginationTable
+      {/* <BasicPaginationTable
         tableHeadLabels={ROLES_TABLE_HEAD_LABELS}
         // tableBodyComponent={<TableBodyComponent />}
-      />
+      /> */}
+      <Table>
+        <TableBody>
+          <TableSkeleton />
+        </TableBody>
+      </Table>
       {/* <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
