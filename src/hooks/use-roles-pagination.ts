@@ -2,19 +2,18 @@ import { useState } from 'react';
 // react query
 import { useQuery } from '@tanstack/react-query';
 // util
-// import { getRoles } from '@/config/table-data';
 import { fetchRoles } from '@/api';
 
-const FETCH_ROLES = 'FETCH_ROLES';
+// ----------------------------------------------------------------
 
-export const useRolesPagination = () => {
-  const { isLoading, data, isError } = useQuery({
-    queryKey: [FETCH_ROLES],
-    queryFn: fetchRoles
-  });
-
+export const useRolesPagination = (url: string) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  const { isLoading, data, isError } = useQuery({
+    queryKey: [url],
+    queryFn: fetchRoles
+  });
 
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
