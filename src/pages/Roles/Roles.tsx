@@ -1,18 +1,14 @@
-import { useEffect, useState } from 'react';
 // mui
 import Box from '@mui/material/Box';
-
 // components
 import { BasicPaginationTable, TableBodyComponent } from '@components/tables';
 // config
 import { ROLES_TABLE_HEAD_LABELS } from '@config/table-head-labels';
+// hooks
+import { useRolesPagination } from '@/hooks';
 
 export const Roles: React.FC = () => {
-  // const { data, isLoading, isError } = useFetchRoles(); // undefined
-
-  // useEffect(() => {
-  //   setRoles(data);
-  // }, [data]);
+  const { data } = useRolesPagination();
 
   return (
     <Box>
@@ -20,6 +16,15 @@ export const Roles: React.FC = () => {
         tableHeadLabels={ROLES_TABLE_HEAD_LABELS}
         // tableBodyComponent={<TableBodyComponent />}
       />
+      {/* <TablePagination
+          rowsPerPageOptions={[5, 10, 25]}
+          component="div"
+          count={roles.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handlePageChange}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        /> */}
     </Box>
   );
 };
@@ -54,3 +59,13 @@ export const Roles: React.FC = () => {
 //     roles
 //   };
 // };
+
+/* <TablePagination
+          rowsPerPageOptions={[5, 10, 25]}
+          component="div"
+          count={roles.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handlePageChange}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />  */

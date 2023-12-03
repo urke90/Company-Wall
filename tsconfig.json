@@ -21,14 +21,16 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      // "@/*": ["./src/*"],
-      "@components/*": ["./src/components/*"],
-      "@libs/*": ["./src/libs/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@router/*": ["./src/router/*"],
-      "@config/*": ["./src/config/*"],
-      "@theme/*": ["./src/theme/*"],
-      "@custom-types/*": ["./src/types/*"]
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@libs/*": ["src/libs/*"],
+      "@pages/*": ["src/pages/*"],
+      "@router/*": ["src/router/*"],
+      "@config/*": ["src/config/*"],
+      "@theme/*": ["src/theme/*"],
+      "@custom-types/*": ["src/types/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@api/*": ["src/api/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
