@@ -21,13 +21,14 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
+      // "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@libs/*": ["./src/libs/*"],
       "@pages/*": ["./src/pages/*"],
       "@router/*": ["./src/router/*"],
       "@config/*": ["./src/config/*"],
-      "@theme/*": ["./src/theme/*"]
+      "@theme/*": ["./src/theme/*"],
+      "@custom-types/*": ["./src/types/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],

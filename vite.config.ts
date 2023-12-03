@@ -9,13 +9,14 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      src: '/src',
+      src: './src',
       '@components': '/src/components',
       '@pages': '/src/pages',
       '@router': '/src/router',
       '@libs': '/src/libs',
       '@config': '/src/config',
-      '@theme': '/src/theme'
+      '@theme': '/src/theme',
+      '@custom-types': './src/types'
     }
   }
 });
