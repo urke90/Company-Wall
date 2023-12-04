@@ -11,18 +11,25 @@ import { useRolesPagination } from '@/hooks';
 // config
 import { FETCH_ROLES } from '@/libs';
 import { IRolesData } from '@/config/table-data';
-import { Typography } from '@mui/material';
+import { TablePagination, Typography } from '@mui/material';
 
 // ------------------------------------------------
 
 export const Roles: React.FC = () => {
-  const [roles, setRoles] = useState<IRolesData[] | undefined>([]);
-  const { data, isLoading } = useRolesPagination(FETCH_ROLES);
+  // const [roles, setRoles] = useState<IRolesData[] | undefined>([]);
+  const {
+    roles,
+    isLoading,
+    handleChangePage,
+    handleChangeRowsPerPage,
+    rowsPerPage,
+    page
+  } = useRolesPagination(FETCH_ROLES);
 
-  useEffect(() => {
-    console.log('data', data);
-    setRoles(data);
-  }, [data]);
+  // useEffect(() => {
+  //   console.log('data', data);
+  //   setRoles(data);
+  // }, [data]);
 
   return (
     <Box>
@@ -35,15 +42,17 @@ export const Roles: React.FC = () => {
           <RolesTableContent isLoading={isLoading} roles={roles} />
         }
       />
-      {/* <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+      {/* {!isLoading && data !== undefined && data.length > 0 && (
+        <TablePagination
+          rowsPerPageOptions={[1, 3, 5]}
           component="div"
-          count={roles.length}
-          rowsPerPage={rowsPerPage}
+          count={data.length}
+          rowsPerPage={1}
           page={page}
-          onPageChange={handlePageChange}
+          onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
-        /> */}
+        />
+      )} */}
     </Box>
   );
 };

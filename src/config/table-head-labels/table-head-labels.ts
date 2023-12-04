@@ -31,5 +31,10 @@ export const ROLES_TABLE_HEAD_LABELS: ITableHeadLabels[] = [
     id: '3',
     label: 'Description',
     isSortable: false
+  },
+  {
+    id: '4',
+    label: 'Action',
+    isSortable: false
   }
 ];
