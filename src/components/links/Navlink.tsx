@@ -35,7 +35,6 @@ interface INavLinkProps {
  */
 export const Navlink: React.FC<INavLinkProps> = ({ icon, path, text }) => {
   const theme = useTheme();
-  console.log('theme', theme);
 
   return (
     <RouterNavLink

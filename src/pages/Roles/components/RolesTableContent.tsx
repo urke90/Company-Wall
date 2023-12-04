@@ -35,10 +35,11 @@ export const RolesTableContent: React.FC<IRolesTableContentProps> = ({
   roles
 }) => {
   const rows = roles?.map(({ description, id, role }) => (
-    <TableRow>
+    <TableRow key={id}>
       <TableCell>{id}</TableCell>
       <TableCell>{role}</TableCell>
       <TableCell>{description}</TableCell>
+      <TableCell>EDIT</TableCell>
     </TableRow>
   ));
 
