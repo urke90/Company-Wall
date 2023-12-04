@@ -11,9 +11,10 @@ export interface IRolesData {
    * A brief description of the role.
    */
   description: string;
+  [key: string]: string | number;
 }
 
-let roles: IRolesData[] = [
+let ROLES: IRolesData[] = [
   {
     id: '1',
     role: 'Developer',
@@ -46,7 +47,7 @@ let roles: IRolesData[] = [
  *
  * @returns {IRolesData[]} An array of roles data.
  */
-export const getRoles = () => roles;
+export const getRoles = () => ROLES;
 
 /**
  * Updates the current list of roles with a new list.
@@ -54,5 +55,5 @@ export const getRoles = () => roles;
  * @param {IRolesData[]} newRoles - The new list of roles to replace the current list.
  */
 export const updateRoles = (newRoles: IRolesData[]) => {
-  roles = newRoles;
+  ROLES = newRoles;
 };

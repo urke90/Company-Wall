@@ -4,24 +4,28 @@ import { useQuery } from '@tanstack/react-query';
 // util
 import { fetchRoles } from '@/api';
 import { IRolesData } from '@/config/table-data';
+// hooks
+import { useFetchRoles } from './use-fetch-roles';
 
 // ----------------------------------------------------------------
 
 export const useRolesPagination = (url: string) => {
-  const [roles, setRoles] = useState<IRolesData[]>([]);
+  // const [roles, setRoles] = useState<IRolesData[]>([]);
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  const { isLoading, data, isError } = useQuery({
-    queryKey: [url],
-    queryFn: fetchRoles
-  });
+  const { isError, isLoading, roles } = useFetchRoles(url);
 
-  useEffect(() => {
-    if (data) {
-      setRoles(data);
-    }
-  }, [data]);
+  // const { isLoading, data, isError } = useQuery({
+  //   queryKey: [url],
+  //   queryFn: fetchRoles
+  // });
+
+  // useEffect(() => {
+  //   if (data) {
+  //     setRoles(data);
+  //   }
+  // }, [data]);
 
   const handleChangePage = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,

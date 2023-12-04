@@ -8,15 +8,16 @@ import Paper from '@mui/material/Paper';
 // import { visuallyHidden } from '@mui/utils';
 
 // config
-import { ITableHeadLabels } from '@config/table-head-labels';
+import { ROLES_TABLE_HEAD_LABELS } from '@config/table-head-labels';
 import { FETCH_ROLES } from '@/libs';
 // hooks
 import { useRolesPagination } from '@/hooks';
 
 // components
-import { TableHeadCustom } from './components';
+import { TableHeadCustom } from '../../../components/tables/components';
+import { RolesTableContent } from '@/pages';
 
-type Order = 'asc' | 'desc';
+// ----------------------------------------------------------------
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -60,15 +61,9 @@ function stableSort<T>(
   return stabilizedThis.map((el) => el[0]);
 }
 
-interface IBasicPaginationTableProps {
-  tableHeadLabels: ITableHeadLabels[];
-  tableBodyComponent?: React.ReactNode;
-}
+type Order = 'asc' | 'desc';
 
-export const BasicPaginationTable: React.FC<IBasicPaginationTableProps> = ({
-  tableHeadLabels,
-  tableBodyComponent
-}) => {
+export const BasicPaginationTable: React.FC = () => {
   const [order, setOrder] = useState<Order>('asc');
   const [orderBy, setOrderBy] = useState('calories');
   const [selected, setSelected] = useState<readonly number[]>([]);
@@ -82,11 +77,6 @@ export const BasicPaginationTable: React.FC<IBasicPaginationTableProps> = ({
     rowsPerPage
   } = useRolesPagination(FETCH_ROLES);
 
-  // const [page, setPage] = useState(0); PAGINATION
-  // const [rowsPerPage, setRowsPerPage] = useState(5);  PAGINATION
-  // const { page, onPageChange, roles, isError, isLoading, handlePageChange } =
-  //   usePagination([FETCH_ROLES]);
-
   // const handleRequestSort = (
   //   event: React.MouseEvent<unknown>,
   //   property: keyof Data
@@ -96,29 +86,15 @@ export const BasicPaginationTable: React.FC<IBasicPaginationTableProps> = ({
   //   setOrderBy(property);
   // };
 
-  const visibleRows = useMemo(
+  const rolesRows = useMemo(
     () =>
       stableSort(roles, getComparator(order, orderBy)).slice(
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage
       ),
-    [order, orderBy, page, rowsPerPage]
+    [order, orderBy, page, rowsPerPage, roles]
   );
 
-  /*
-  PAGINATION
-
-  const handleChangePage = (event: unknown, newPage: number) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
-*/
   return (
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
@@ -129,19 +105,19 @@ export const BasicPaginationTable: React.FC<IBasicPaginationTableProps> = ({
             size="medium"
           >
             <TableHeadCustom
-              tableHeadLabels={tableHeadLabels}
+              tableHeadLabels={ROLES_TABLE_HEAD_LABELS}
               numSelected={selected.length}
               order={order}
               // orderBy={orderBy}
               // onRequestSort={handleRequestSort}
               // rowCount={rows.length}
             />
-            {tableBodyComponent}
+            <RolesTableContent isLoading={isLoading} roles={rolesRows} />
           </Table>
         </TableContainer>
         {!isLoading && roles !== undefined && roles.length > 0 && (
           <TablePagination
-            rowsPerPageOptions={[5, 10, 25]}
+            rowsPerPageOptions={[2, 4, 6, 8, 10]}
             component="div"
             count={roles.length}
             rowsPerPage={rowsPerPage}
