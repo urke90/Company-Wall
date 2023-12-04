@@ -1,5 +1,6 @@
-interface IUserProps {}
+// mui
+import Box from '@mui/material/Box';
 
-export const Users: React.FC<IUserProps> = (props) => {
-  return <div>Users Page</div>;
+export const Users: React.FC = () => {
+  return <Box>Users Page</Box>;
 };
