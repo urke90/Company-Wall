@@ -10,17 +10,27 @@ interface ITableSekeltonProps extends SkeletonProps {
    * Optional; defaults to 10.
    */
   rowCount?: number;
+  /**
+   * The number of rows the skeleton should have.
+   * Optional; defaults to 10.
+   */
+  cellCount?: number;
 }
 
 export const TableSkeleton: React.FC<ITableSekeltonProps> = ({
   rowCount = 10,
+  cellCount = 4,
   ...rest
 }) => {
+  const cells = [...Array(cellCount)].map((_, index) => (
+    <TableCell key={index} sx={{ border: 'none', p: 1 }}>
+      <Skeleton width="100%" {...rest} />
+    </TableCell>
+  ));
+
   const rows = [...Array(rowCount)].map((_, index) => (
-    <TableRow key={index}>
-      <TableCell sx={{ border: 'none', p: 1 }}>
-        <Skeleton width="100%" {...rest} />
-      </TableCell>
+    <TableRow key={index} sx={{ width: 1 }}>
+      {cells}
     </TableRow>
   ));
   return <>{rows}</>;
