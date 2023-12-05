@@ -58,14 +58,7 @@ const CardActions = () => {
     >
       {LINK_CONFIG.map(({ icon, path, text }) => (
         <Link key={path} to={path} style={{ textDecoration: 'none' }}>
-          <IconLeftButton
-            key={path}
-            icon={icon}
-            variant="contained"
-            sx={{ width: 1 }}
-          >
-            {text}
-          </IconLeftButton>
+          <IconLeftButton icon={icon}>{text}</IconLeftButton>
         </Link>
       ))}
     </Stack>

@@ -1,4 +1,4 @@
-import MuiButton, { ButtonProps } from '@mui/material/Button';
+import Button, { ButtonProps } from '@mui/material/Button';
 import { Iconify } from '@components/icons';
 
 // ----------------------------------------------------------------
@@ -28,17 +28,19 @@ export const IconLeftButton: React.FC<IIconButtonProps> = ({
   icon,
   iconWidth = 20,
   children,
+  variant = 'contained',
   sx,
   ...rest
 }) => {
   return (
-    <MuiButton
+    <Button
       startIcon={<Iconify icon={icon} width={iconWidth} />}
       sx={{ width: 1, ...sx }}
+      variant={variant}
       {...rest}
     >
       {children}
-    </MuiButton>
+    </Button>
   );
 };
 
@@ -52,16 +54,18 @@ export const IconRightButton: React.FC<IIconButtonProps> = ({
   icon,
   iconWidth = 20,
   children,
+  variant = 'contained',
   sx,
   ...rest
 }) => {
   return (
-    <MuiButton
+    <Button
       endIcon={<Iconify icon={icon} width={iconWidth} />}
       sx={{ width: 1, ...sx }}
+      variant={variant}
       {...rest}
     >
       {children}
-    </MuiButton>
+    </Button>
   );
 };
