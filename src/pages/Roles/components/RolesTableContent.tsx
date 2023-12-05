@@ -2,7 +2,11 @@
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 // components
-import { TableBodyComponent } from '@/components';
+import {
+  TableBodyComponent,
+  LinkIconLeftButton,
+  ICON_NAMES
+} from '@/components';
 // types
 import { IRolesData } from '@/config/table-data';
 
@@ -39,7 +43,11 @@ export const RolesTableContent: React.FC<IRolesTableContentProps> = ({
       <TableCell>{id}</TableCell>
       <TableCell>{role}</TableCell>
       <TableCell>{description}</TableCell>
-      <TableCell>EDIT</TableCell>
+      <TableCell>
+        <LinkIconLeftButton to={`${id}`} icon={ICON_NAMES.edit}>
+          Edit
+        </LinkIconLeftButton>
+      </TableCell>
     </TableRow>
   ));
 
