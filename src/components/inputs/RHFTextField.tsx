@@ -5,12 +5,13 @@ import TextField, { TextFieldProps } from '@mui/material/TextField';
 
 // ---------------------------------------------------------------
 
-type ITextFieldProps = TextFieldProps & {
+type IRHFTextFieldProps = TextFieldProps & {
   name: string;
   onChangeValue?: (val: string) => void;
+  rules?: any;
 };
 
-export const RHFTextField: React.FC<ITextFieldProps> = ({
+export const RHFTextField: React.FC<IRHFTextFieldProps> = ({
   name,
   variant = 'standard',
   size = 'medium',
