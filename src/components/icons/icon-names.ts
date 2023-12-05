@@ -31,5 +31,7 @@ export const ICON_NAMES = {
   menu: 'ion:menu',
   home: 'ic:baseline-home',
   users: 'mdi:users',
-  roles: 'ic:baseline-info'
+  roles: 'ic:baseline-info',
+  edit: 'ic:baseline-edit',
+  create: 'ic:outline-add'
 };

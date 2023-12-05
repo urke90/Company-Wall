@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 // components
 import { BasicPaginationTable } from './components';
-import { Button } from '@mui/material';
+import { LinkIconLeftButton, ICON_NAMES } from '@/components';
 
 // ------------------------------------------------
 
@@ -14,9 +14,10 @@ export const Roles: React.FC = () => {
         Roles
       </Typography>
       <BasicPaginationTable />
-      <Box sx={{ mb: 3 }}>
-        {/* TODO create link button add new route for create and update roles*/}
-        <Button>Create Role</Button>
+      <Box sx={{ mb: 13, width: '15rem' }}>
+        <LinkIconLeftButton to="new" icon={ICON_NAMES.create}>
+          Add Role
+        </LinkIconLeftButton>
       </Box>
     </Box>
   );
