@@ -45,7 +45,7 @@ export const BasicCard: React.FC<BasicCardProps> = ({
   ...rest
 }) => {
   return (
-    <Card sx={{ minWidth: 275, ...sx }} {...rest}>
+    <Card sx={{ minWidth: 275, ...sx }} raised {...rest}>
       {title && <CardHeader title={title} />}
       <CardContent>{children}</CardContent>
       {cardActions && <CardActions>{cardActions}</CardActions>}

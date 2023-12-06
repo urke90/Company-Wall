@@ -4,3 +4,4 @@ export * from './cards';
 export * from './links';
 export * from './tables';
 export * from './inputs';
+export * from './forms';
