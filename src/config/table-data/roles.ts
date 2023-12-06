@@ -11,9 +11,16 @@ export interface IRolesData {
    * A brief description of the role.
    */
   description: string;
+  /**
+   * An index signature to allow additional properties of type string or number.
+   */
   [key: string]: string | number;
 }
 
+/**
+ * Array of roles, each conforming to the IRolesData interface.
+ * @type {IRolesData[]}
+ */
 let ROLES: IRolesData[] = [
   {
     id: '1',
