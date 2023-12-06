@@ -7,6 +7,7 @@ import TextField, { TextFieldProps } from '@mui/material/TextField';
 
 type IRHFTextFieldProps = TextFieldProps & {
   name: string;
+  label?: string;
   onChangeValue?: (val: string) => void;
   rules?: any;
 };
