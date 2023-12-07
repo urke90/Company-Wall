@@ -3,9 +3,14 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 // components
 import { RolesForm, BasicCard } from '@/components';
+// hooks
+import { useCreateRole } from '@/hooks';
+
 // ----------------------------------------------------------------
 
 export const RolesCreate: React.FC = () => {
+  const { onAddRole, error } = useCreateRole();
+
   return (
     <Box>
       <Typography variant="h4" textAlign="center">
@@ -24,7 +29,7 @@ export const RolesCreate: React.FC = () => {
             width: { sm: 600 }
           }}
         >
-          <RolesForm />
+          <RolesForm onSubmit={onAddRole} />
         </BasicCard>
       </Box>
     </Box>
