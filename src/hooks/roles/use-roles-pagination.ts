@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // hooks
-import { useFetchRoles } from './use-fetch-roles';
+import { useAppContext } from '../use-app-context';
 
 // ----------------------------------------------------------------
 
@@ -24,11 +24,11 @@ import { useFetchRoles } from './use-fetch-roles';
  * This hook is useful for scenarios where roles data needs to be displayed in a paginated table or list.
  * It simplifies the state management related to pagination and integrates seamlessly with data fetching logic.
  */
-export const useRolesPagination = (url: string) => {
+export const useRolesPagination = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  const { isError, isLoading, roles } = useFetchRoles(url);
+  const { roles } = useAppContext();
 
   const handleChangePage = (
     _: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
@@ -45,9 +45,7 @@ export const useRolesPagination = (url: string) => {
   };
 
   return {
-    isLoading,
     roles,
-    isError,
     page,
     rowsPerPage,
     handleChangePage,

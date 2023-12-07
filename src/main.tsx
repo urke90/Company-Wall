@@ -5,7 +5,7 @@ import { RouterProvider } from 'react-router-dom';
 // react query
 import { QueryClientProvider } from './libs';
 // context
-import { DataContextProvider } from './components';
+import { AppContextProvider } from './components';
 // components
 import { router } from './router';
 import { ThemeProvider } from './theme';
@@ -13,9 +13,9 @@ import { ThemeProvider } from './theme';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <QueryClientProvider>
     <ThemeProvider>
-      <DataContextProvider>
+      <AppContextProvider>
         <RouterProvider router={router} />
-      </DataContextProvider>
+      </AppContextProvider>
     </ThemeProvider>
   </QueryClientProvider>
 );
