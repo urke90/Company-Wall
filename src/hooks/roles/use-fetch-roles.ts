@@ -34,6 +34,8 @@ export const useFetchRoles = (url: string) => {
   });
   const { onSetRoles } = useAppContext();
 
+  console.log('isError', isError);
+
   useEffect(() => {
     if (data) {
       onSetRoles(data);

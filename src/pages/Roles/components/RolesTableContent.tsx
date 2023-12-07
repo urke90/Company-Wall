@@ -8,7 +8,7 @@ import {
   ICON_NAMES
 } from '@/components';
 // types
-import { IRolesData } from '@/config/table-data';
+import { IRolesData } from '@/config';
 
 // ----------------------------------------------------------------
 
@@ -38,10 +38,10 @@ export const RolesTableContent: React.FC<IRolesTableContentProps> = ({
   isLoading,
   roles
 }) => {
-  const rows = roles?.map(({ description, id, role }) => (
+  const rows = roles?.map(({ description, id, roleName }) => (
     <TableRow key={id}>
       <TableCell>{id}</TableCell>
-      <TableCell>{role}</TableCell>
+      <TableCell>{roleName}</TableCell>
       <TableCell>{description}</TableCell>
       <TableCell>
         <LinkIconLeftButton to={`${id}`} icon={ICON_NAMES.edit}>

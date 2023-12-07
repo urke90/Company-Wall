@@ -1,29 +1,27 @@
-{
-  "roles": [
-    {
-      "id": "1",
-      "role": "Developer",
-      "description": "Responsible for writing and testing code"
-    },
-    {
-      "id": "2",
-      "role": "Project Manager",
-      "description": "Oversees project timelines and deliverables"
-    },
-    {
-      "id": "3",
-      "role": "Designer",
-      "description": "Creates user interfaces and experiences"
-    },
-    {
-      "id": "4",
-      "role": "Quality Assurance",
-      "description": "Ensures the quality of the software"
-    },
-    {
-      "id": "5",
-      "role": "System Administrator",
-      "description": "Manages and maintains IT systems"
-    }
-  ]
-}
+[
+  {
+    "id": "714d63b8-1e4f-4844-be17-7ddc7bbf8175",
+    "roleName": "Developer",
+    "description": "Responsible for writing and testing code"
+  },
+  {
+    "id": "e15938dd-e5c2-4b38-8087-e66717d215ca",
+    "roleName": "Project Manager",
+    "description": "Oversees project timelines and deliverables"
+  },
+  {
+    "id": "6e559af8-ce0c-4757-9714-5a49e19ff8de",
+    "roleName": "Designer",
+    "description": "Creates user interfaces and experiences"
+  },
+  {
+    "id": "c7f63ac5-4d95-4549-8876-3fd39e255616",
+    "roleName": "Quality Assurance",
+    "description": "Ensures the quality of the software"
+  },
+  {
+    "id": "afc78341-dbaf-459c-b559-f338f03e3fcb",
+    "roleName": "System Administrator",
+    "description": "Manages and maintains IT systems"
+  }
+]

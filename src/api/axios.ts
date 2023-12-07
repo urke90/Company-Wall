@@ -1,9 +1,9 @@
 import axiosFn from 'axios';
 
 export const axios = axiosFn.create({
-  baseURL: 'https://company-wall-test-default-rtdb.firebaseio.com/',
-  timeout: 1000
-  // headers: {'X-Custom-Header': 'foobar'}
+  baseURL: '/src/api/data/',
+  // timeout: 1000
+  headers: { Accept: 'application/json' }
 });
 
 axios.interceptors.request.use(
