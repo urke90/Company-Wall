@@ -1,10 +1,16 @@
-import { IRolesData, getRoles } from '@/config/table-data';
+// axios
+import { axios } from './axios';
+// types
+import { IRolesData } from '@/types';
+
+// ----------------------------------------------------------------
 
 export const fetchRoles = async () => {
-  const roles = getRoles();
+  const response = await axios.get<IRolesData[]>('roles.json');
+
   return new Promise<IRolesData[]>((resolve) => {
     setTimeout(() => {
-      resolve(roles);
+      resolve(response.data);
     }, 2000);
   });
 };

@@ -8,10 +8,16 @@ import { RHFTextField } from '../inputs';
 import { IconLeftButton } from '../buttons';
 // icons
 import { ICON_NAMES } from '../icons';
+// types
+import { IRolesData } from '@/types';
 
 // ----------------------------------------------------------------
 
-export const RolesForm: React.FC = () => {
+interface IRolesDataProps {
+  role?: IRolesData;
+}
+
+export const RolesForm: React.FC<IRolesDataProps> = () => {
   const methods = useForm();
 
   return (

@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
-// types config
-import { IRolesData, IUsersData } from '@/config/table-data';
+// types
+import { IRolesData, IUsersData } from '@/types';
 
 // ----------------------------------------------------------------
 

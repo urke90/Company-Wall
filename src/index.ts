@@ -6,4 +6,4 @@ export * from './libs';
 export * from './pages';
 export * from './router';
 export * from './theme';
-// export * from './types';
+export * from './types';

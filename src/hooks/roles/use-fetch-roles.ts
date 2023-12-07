@@ -5,8 +5,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useAppContext } from '../use-app-context';
 // api
 import { fetchRoles } from '@/api';
-// config
-import { IRolesData } from '@/config';
+// types
+import { IRolesData } from '@/types';
 
 // ----------------------------------------------------------------
 
@@ -33,6 +33,8 @@ export const useFetchRoles = (url: string) => {
     queryFn: fetchRoles
   });
   const { onSetRoles } = useAppContext();
+
+  console.log('isError', isError);
 
   useEffect(() => {
     if (data) {

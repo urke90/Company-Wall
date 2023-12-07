@@ -28,7 +28,7 @@
       "@router/*": ["src/router/*"],
       "@config/*": ["src/config/*"],
       "@theme/*": ["src/theme/*"],
-      "@custom-types/*": ["src/types/*"],
+      "@common-types/*": ["src/types/*"],
       "@hooks/*": ["src/hooks/*"],
       "@api/*": ["src/api/*"]
     }
