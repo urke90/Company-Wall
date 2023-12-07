@@ -32,7 +32,7 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    console.log('roles', roles);
+    console.log('roles U APP CONTEXT', roles);
   }, [roles]);
 
   const onAddRole = (newRole: IRolesData) => {

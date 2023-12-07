@@ -32,9 +32,8 @@ export const useFetchRoles = (url: string) => {
     queryKey: [url],
     queryFn: fetchRoles
   });
-  const { onSetRoles } = useAppContext();
 
-  console.log('isError', isError);
+  const { onSetRoles } = useAppContext();
 
   useEffect(() => {
     if (data) {

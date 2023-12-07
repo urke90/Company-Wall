@@ -1,6 +1,6 @@
 export interface IUsersData {
   /**
-   * Uniquer indentifer for the user.
+   * The unique identifier for the user.
    */
   id: string;
   /**
