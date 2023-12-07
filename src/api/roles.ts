@@ -1,6 +1,9 @@
+// axios
 import { axios } from './axios';
+// types
+import { IRolesData } from '@/types';
 
-import { IRolesData } from '@/config';
+// ----------------------------------------------------------------
 
 export const fetchRoles = async () => {
   const response = await axios.get<IRolesData[]>('roles.json');

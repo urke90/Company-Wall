@@ -8,7 +8,7 @@ import {
   ICON_NAMES
 } from '@/components';
 // types
-import { IRolesData } from '@/config';
+import { IRolesData } from '@/types';
 
 // ----------------------------------------------------------------
 

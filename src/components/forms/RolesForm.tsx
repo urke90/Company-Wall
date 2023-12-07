@@ -8,8 +8,8 @@ import { RHFTextField } from '../inputs';
 import { IconLeftButton } from '../buttons';
 // icons
 import { ICON_NAMES } from '../icons';
-// config
-import { IRolesData } from '@/config';
+// types
+import { IRolesData } from '@/types';
 
 // ----------------------------------------------------------------
 
