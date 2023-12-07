@@ -6,13 +6,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
 // import { visuallyHidden } from '@mui/utils';
-
 // config
 import { ROLES_TABLE_HEAD_LABELS } from '@config/table-head-labels';
 import { FETCH_ROLES } from '@/libs';
 // hooks
-import { useRolesPagination } from '@/hooks';
-
+import { useAppContext, useFetchRoles, useRolesPagination } from '@/hooks';
 // components
 import { TableHeadCustom } from '../../../components/tables/components';
 import { RolesTableContent } from '@/pages';
@@ -68,14 +66,17 @@ export const BasicPaginationTable: React.FC = () => {
   const [orderBy, setOrderBy] = useState('calories');
   const [selected, setSelected] = useState<readonly number[]>([]);
 
+  const { isLoading, isError } = useFetchRoles(FETCH_ROLES);
+
+  const { onSetRoles } = useAppContext();
+
   const {
     roles,
     handleChangePage,
     handleChangeRowsPerPage,
-    isLoading,
     page,
     rowsPerPage
-  } = useRolesPagination(FETCH_ROLES);
+  } = useRolesPagination();
 
   // const handleRequestSort = (
   //   event: React.MouseEvent<unknown>,

@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 // react query
 import { useQuery } from '@tanstack/react-query';
 // hooks
-import { useDataContext } from './use-data-context';
+import { useAppContext } from '../use-app-context';
 // api
 import { fetchRoles } from '@/api';
 // config
-import { IRolesData } from '@/config/table-data';
+import { IRolesData } from '@/config';
 
 // ----------------------------------------------------------------
 
@@ -28,23 +28,20 @@ import { IRolesData } from '@/config/table-data';
  * the context state with the fetched data once it's available.
  */
 export const useFetchRoles = (url: string) => {
-  const [roles, setRoles] = useState<IRolesData[]>([]);
-  const { isLoading, data, isError } = useQuery({
+  const { isLoading, data, isError } = useQuery<IRolesData[]>({
     queryKey: [url],
     queryFn: fetchRoles
   });
-  const { onSetRoles } = useDataContext();
+  const { onSetRoles } = useAppContext();
 
   useEffect(() => {
     if (data) {
-      setRoles(data);
       onSetRoles(data);
     }
   }, [data, onSetRoles]);
 
   return {
     isLoading,
-    roles,
     isError
   };
 };
