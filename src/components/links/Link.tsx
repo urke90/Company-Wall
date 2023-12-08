@@ -3,6 +3,7 @@ import { Link as RouterLink, LinkProps } from 'react-router-dom';
 
 // components
 import { IconLeftButton, IconRightButton } from '../buttons';
+import { SxProps, Theme } from '@mui/material';
 
 // ----------------------------------------------------------------
 
@@ -12,7 +13,7 @@ interface ILinkLinkBasicProps extends LinkProps {
   /**
    * Additional inline styles for the link component.
    */
-  additionalStyles?: React.CSSProperties;
+  styles?: React.CSSProperties;
 }
 
 /**
@@ -26,12 +27,17 @@ interface ILinkLinkBasicProps extends LinkProps {
 export const LinkBasic: React.FC<ILinkLinkBasicProps> = ({
   children,
   to,
-  additionalStyles,
+  styles,
   ...rest
 }) => {
   return (
     <RouterLink
-      style={{ textDecoration: 'none', display: 'block', ...additionalStyles }}
+      style={{
+        textDecoration: 'none',
+        display: 'block',
+        ...styles,
+        width: '100%'
+      }}
       to={to}
       {...rest}
     >
@@ -53,6 +59,8 @@ interface ILinkIconButtonProps extends LinkProps {
    * Children elements to be rendered inside the button.
    */
   children: React.ReactNode;
+
+  btnSx?: SxProps<Theme>;
 }
 
 /**
@@ -69,12 +77,13 @@ export const LinkIconLeftButton: React.FC<ILinkIconButtonProps> = ({
   to,
   icon,
   iconWidth = 20,
+  btnSx,
   children,
   ...rest
 }) => {
   return (
     <LinkBasic to={to} {...rest}>
-      <IconLeftButton icon={icon} iconWidth={iconWidth}>
+      <IconLeftButton icon={icon} iconWidth={iconWidth} sx={{ ...btnSx }}>
         {children}
       </IconLeftButton>
     </LinkBasic>
@@ -96,12 +105,13 @@ export const LinkIconRightButton: React.FC<ILinkIconButtonProps> = ({
   to,
   icon,
   iconWidth = 20,
+  btnSx,
   children,
   ...rest
 }) => {
   return (
     <LinkBasic to={to} {...rest}>
-      <IconRightButton icon={icon} iconWidth={iconWidth}>
+      <IconRightButton icon={icon} iconWidth={iconWidth} sx={{ ...btnSx }}>
         {children}
       </IconRightButton>
     </LinkBasic>
