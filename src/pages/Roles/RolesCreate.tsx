@@ -2,17 +2,20 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 // components
-import { RolesForm, BasicCard } from '@/components';
+import { RolesForm, BasicCard, AlertDialog } from '@/components';
 // hooks
 import { useCreateRole } from '@/hooks';
 
 // ----------------------------------------------------------------
 
 export const RolesCreate: React.FC = () => {
-  const { onAddRole, error } = useCreateRole();
+  const { onAddRole, error, onClearError } = useCreateRole();
 
   return (
     <Box>
+      <AlertDialog open={!!error} onClose={onClearError} title="Error!">
+        Role already exists!
+      </AlertDialog>
       <Typography variant="h4" textAlign="center">
         Create New Role
       </Typography>

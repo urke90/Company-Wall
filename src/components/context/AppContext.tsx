@@ -12,6 +12,7 @@ interface IAppContext {
   onSetRoles: (roles: IRolesData[]) => void;
   onSetUsers: (users: IUsersData[]) => void;
   error: string | null;
+  onClearError: () => void;
 }
 
 export const AppContext = createContext<IAppContext>({
@@ -21,7 +22,8 @@ export const AppContext = createContext<IAppContext>({
   onUpdateRole: () => {},
   users: [],
   onSetUsers: () => {},
-  error: null
+  error: null,
+  onClearError: () => {}
 });
 
 export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -65,6 +67,10 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({
     );
   };
 
+  const onClearError = () => {
+    setError(null);
+  };
+
   const onSetRoles = (roles: IRolesData[]) => {
     setRoles(roles);
   };
@@ -80,6 +86,7 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({
     onUpdateRole,
     users,
     onSetUsers,
+    onClearError,
     error
   };
 
