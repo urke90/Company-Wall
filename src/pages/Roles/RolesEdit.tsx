@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 // components
 import { BasicCard, RolesForm, DataNotFound } from '@/components';
 // hooks
-import { useUpdateRole } from '@/hooks/roles/use-update-role';
+import { useUpdateRole } from '@/hooks';
 
 // ----------------------------------------------------------------
 
