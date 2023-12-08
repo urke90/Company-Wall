@@ -12,7 +12,7 @@ import { FETCH_ROLES } from '@/libs';
 // hooks
 import { useAppContext, useFetchRoles, useRolesPagination } from '@/hooks';
 // components
-import { TableHeadCustom } from '../../../components/tables/components';
+import { TableHeadCustom } from '@/components';
 import { RolesTableContent } from '@/pages';
 
 // ----------------------------------------------------------------
@@ -61,7 +61,7 @@ function stableSort<T>(
 
 type Order = 'asc' | 'desc';
 
-export const BasicPaginationTable: React.FC = () => {
+export const BasicRolesPaginationTable: React.FC = () => {
   const [order, setOrder] = useState<Order>('asc');
   const [orderBy, setOrderBy] = useState('calories');
   const [selected, setSelected] = useState<readonly number[]>([]);

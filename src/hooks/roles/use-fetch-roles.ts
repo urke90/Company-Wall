@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 // react query
 import { useQuery } from '@tanstack/react-query';
 // hooks
-import { useAppContext } from '../use-app-context';
+import { useAppContext } from '@/hooks';
 // api
 import { fetchRoles } from '@/api';
 // types

@@ -1,4 +1,5 @@
-import { ICON_NAMES } from '@components/icons';
+// components
+import { ICON_NAMES } from '@/components';
 
 // ----------------------------------------------------------------
 

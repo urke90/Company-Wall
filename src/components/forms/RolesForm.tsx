@@ -1,12 +1,10 @@
 // react hook form
 import { FormProvider, useForm, SubmitHandler } from 'react-hook-form';
 // mui
-import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import FormControl from '@mui/material/FormControl';
 // components
-import { RHFTextField } from '../inputs';
-import { IconLeftButton, GoBackButton } from '../buttons';
+import { IconLeftButton, GoBackButton, RHFTextField } from '@/components';
 // icons
 import { ICON_NAMES } from '../icons';
 // types

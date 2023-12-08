@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 // components
-import { Header } from './components';
+import { Header } from '@/theme';
 
 // ----------------------------------------------------------------
 

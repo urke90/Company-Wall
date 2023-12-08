@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 // mui
 import { ButtonProps } from '@mui/material/Button';
 // components
-import { IconLeftButton } from './IconButton';
-import { ICON_NAMES } from '../icons';
+import { IconLeftButton, ICON_NAMES } from '@/components';
 
 // ----------------------------------------------------------------
 

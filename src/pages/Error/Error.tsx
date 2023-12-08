@@ -5,10 +5,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 // config
-import { LINK_CONFIG } from '@config/navigation';
+import { LINK_CONFIG } from '@/config';
 // components
-import { BasicCard } from '@components/cards';
-import { IconLeftButton } from '@components/buttons';
+import { BasicCard, IconLeftButton } from '@/components';
 
 // ----------------------------------------------------------------
 
