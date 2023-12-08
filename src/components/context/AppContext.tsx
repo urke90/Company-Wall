@@ -44,7 +44,7 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({
       );
 
       if (roleExists) {
-        setError(`${newRole.roleName} already exists!`);
+        setError(`Role with name ${newRole.roleName} already exists!`);
         return prevRoles;
       }
 
