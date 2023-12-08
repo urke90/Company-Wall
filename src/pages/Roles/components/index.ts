@@ -1,2 +1,2 @@
-export * from './RolesTableContent';
 export * from './BasicRolesPaginationTable';
+export * from './RolesTableRows';

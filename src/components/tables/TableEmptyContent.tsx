@@ -1,6 +1,7 @@
 // mui
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
+import Typography from '@mui/material/Typography';
 
 // ----------------------------------------------------------------
 
@@ -15,7 +16,11 @@ import TableCell from '@mui/material/TableCell';
 export const TableEmptyContent: React.FC = () => {
   return (
     <TableRow>
-      <TableCell>No Data!</TableCell>
+      <TableCell>
+        <Typography variant="h6" textAlign="center">
+          No data!
+        </Typography>
+      </TableCell>
     </TableRow>
   );
 };
