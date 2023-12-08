@@ -1,5 +1,5 @@
 // react hook form
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext, RegisterOptions } from 'react-hook-form';
 // mui
 import TextField, { TextFieldProps } from '@mui/material/TextField';
 
@@ -9,7 +9,7 @@ type IRHFTextFieldProps = TextFieldProps & {
   name: string;
   label?: string;
   onChangeValue?: (val: string) => void;
-  rules?: any;
+  rules?: RegisterOptions;
 };
 
 export const RHFTextField: React.FC<IRHFTextFieldProps> = ({
@@ -18,6 +18,7 @@ export const RHFTextField: React.FC<IRHFTextFieldProps> = ({
   size = 'medium',
   label,
   onChangeValue,
+  rules,
   ...rest
 }) => {
   const { control } = useFormContext();
@@ -26,6 +27,7 @@ export const RHFTextField: React.FC<IRHFTextFieldProps> = ({
     <Controller
       name={name}
       control={control}
+      rules={rules}
       render={({ field, fieldState: { error } }) => (
         <TextField
           {...field}

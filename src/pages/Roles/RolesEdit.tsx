@@ -37,7 +37,7 @@ export const RolesEdit: React.FC = () => {
           }}
         >
           {existingRole ? (
-            <RolesForm onSubmit={() => {}} />
+            <RolesForm onSubmit={() => {}} role={existingRole} />
           ) : (
             <DataNotFound
               linkTitle="Roles"
