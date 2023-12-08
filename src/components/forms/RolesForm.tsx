@@ -2,10 +2,11 @@
 import { FormProvider, useForm, SubmitHandler } from 'react-hook-form';
 // mui
 import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import FormControl from '@mui/material/FormControl';
 // components
 import { RHFTextField } from '../inputs';
-import { IconLeftButton } from '../buttons';
+import { IconLeftButton, GoBackButton } from '../buttons';
 // icons
 import { ICON_NAMES } from '../icons';
 // types
@@ -55,11 +56,12 @@ export const RolesForm: React.FC<IRolesDataProps> = ({ role, onSubmit }) => {
         <FormControl sx={{ display: 'block', mb: 5 }}>
           <RHFTextField name="description" label="Description" />
         </FormControl>
-        <Box sx={{ maxWidth: { sm: '30%' } }}>
+        <Stack spacing={2} gap={2} direction={{ sm: 'row' }}>
           <IconLeftButton icon={ICON_NAMES.create} type="submit">
             Add
           </IconLeftButton>
-        </Box>
+          <GoBackButton />
+        </Stack>
       </form>
     </FormProvider>
   );
