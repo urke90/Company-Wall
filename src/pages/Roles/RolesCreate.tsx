@@ -14,7 +14,7 @@ export const RolesCreate: React.FC = () => {
   return (
     <Box>
       <AlertDialog open={!!error} onClose={onClearError} title="Error!">
-        Role already exists!
+        {error}
       </AlertDialog>
       <Typography variant="h4" textAlign="center">
         Create New Role

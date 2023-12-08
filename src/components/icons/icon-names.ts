@@ -33,5 +33,6 @@ export const ICON_NAMES = {
   users: 'mdi:users',
   roles: 'ic:baseline-info',
   edit: 'ic:baseline-edit',
-  create: 'ic:outline-add'
+  create: 'ic:outline-add',
+  back: 'ep:back'
 };
