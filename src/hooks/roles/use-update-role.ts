@@ -1,4 +1,4 @@
-import { useAppContext } from '../use-app-context';
+import { useAppContext } from '@/hooks';
 
 // ----------------------------------------------------------------
 

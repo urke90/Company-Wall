@@ -1,11 +1,10 @@
 import Box from '@mui/material/Box';
-import Checkbox from '@mui/material/Checkbox/Checkbox';
 import TableCell from '@mui/material/TableCell/TableCell';
 import TableHead from '@mui/material/TableHead/TableHead';
 import TableRow from '@mui/material/TableRow/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel/TableSortLabel';
 // config
-import { ITableHeadLabels } from '@config/table-head-labels';
+import { ITableHeadLabels } from '@/config';
 
 type Order = 'asc' | 'desc';
 

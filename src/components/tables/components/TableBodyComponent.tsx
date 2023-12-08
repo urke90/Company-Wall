@@ -1,8 +1,7 @@
 // mui
 import TableBody from '@mui/material/TableBody';
 // components
-import { TableSkeleton } from './TableSkeleton';
-import { TableEmptyContent } from './TableEmptyContent';
+import { TableSkeleton, TableEmptyContent } from '@/components';
 
 // ----------------------------------------------------------------
 interface ITableBodyComponent {

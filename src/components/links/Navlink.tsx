@@ -1,9 +1,9 @@
-// mui
-import { Stack, Typography, useTheme } from '@mui/material';
 // react router
 import { NavLink as RouterNavLink } from 'react-router-dom';
+// mui
+import { Stack, Typography, useTheme } from '@mui/material';
 // components
-import { Iconify } from '@components/icons/Iconify';
+import { Iconify } from '@/components';
 
 // ----------------------------------------------------------------------
 

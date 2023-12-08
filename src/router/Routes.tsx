@@ -1,11 +1,17 @@
 // react router
 import { createBrowserRouter } from 'react-router-dom';
 // pages
-import { Layout } from '@theme/layout';
-import { Users, UsersCreate, UsersEdit } from '@pages/Users';
-import { Roles, RolesCreate, RolesEdit } from '@pages/Roles';
-import { Home } from '@pages/Home';
-import { Error } from '@pages/Error';
+import { Layout } from '@/theme';
+import {
+  Users,
+  UsersCreate,
+  UsersEdit,
+  Roles,
+  RolesCreate,
+  RolesEdit,
+  Home,
+  Error
+} from '@/pages';
 
 // ----------------------------------------------------------------
 

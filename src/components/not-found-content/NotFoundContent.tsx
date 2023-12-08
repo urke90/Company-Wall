@@ -1,7 +1,7 @@
 // mui
 import Box, { BoxProps } from '@mui/material/Box';
 // components
-import { GoBackButton } from '../buttons';
+import { GoBackButton } from '@/components';
 
 // ----------------------------------------------------------------
 

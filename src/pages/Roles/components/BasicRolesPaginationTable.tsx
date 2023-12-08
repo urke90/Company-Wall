@@ -7,12 +7,12 @@ import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
 // import { visuallyHidden } from '@mui/utils';
 // config
-import { ROLES_TABLE_HEAD_LABELS } from '@config/table-head-labels';
+import { ROLES_TABLE_HEAD_LABELS } from '@/config';
 import { FETCH_ROLES } from '@/libs';
 // hooks
 import { useAppContext, useFetchRoles, useRolesPagination } from '@/hooks';
 // components
-import { TableHeadCustom } from '../../../components/tables/components';
+import { TableHeadCustom } from '@/components';
 import { RolesTableContent } from '@/pages';
 
 // ----------------------------------------------------------------
@@ -61,7 +61,7 @@ function stableSort<T>(
 
 type Order = 'asc' | 'desc';
 
-export const BasicPaginationTable: React.FC = () => {
+export const BasicRolesPaginationTable: React.FC = () => {
   const [order, setOrder] = useState<Order>('asc');
   const [orderBy, setOrderBy] = useState('calories');
   const [selected, setSelected] = useState<readonly number[]>([]);

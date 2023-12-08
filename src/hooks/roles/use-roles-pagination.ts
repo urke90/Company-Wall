@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // hooks
-import { useAppContext } from '../use-app-context';
+import { useAppContext } from '@/hooks';
 
 // ----------------------------------------------------------------
 

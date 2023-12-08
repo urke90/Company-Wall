@@ -9,9 +9,8 @@ import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 // components
-import { Navlink } from '@components/links';
-import { NAV_LINK_CONFIG } from '@config/navigation';
-import { Iconify, ICON_NAMES } from '@components/icons';
+import { Navlink, Iconify, ICON_NAMES } from '@/components';
+import { NAV_LINK_CONFIG } from '@/config';
 
 // ----------------------------------------------------------------
 

@@ -1,9 +1,9 @@
 // react router
 import { Link as RouterLink, LinkProps } from 'react-router-dom';
-
-// components
-import { IconLeftButton, IconRightButton } from '../buttons';
+// mui
 import { SxProps, Theme } from '@mui/material';
+// components
+import { IconLeftButton, IconRightButton } from '@/components';
 
 // ----------------------------------------------------------------
 
