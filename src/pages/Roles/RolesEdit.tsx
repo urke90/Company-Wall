@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 // components
-import { BasicCard, RolesForm, NotFoundContent } from '@/components';
+import { BasicCard, RolesForm, DataNotFound } from '@/components';
 // hooks
 import { useUpdateRole } from '@/hooks/roles/use-update-role';
 
@@ -39,11 +39,11 @@ export const RolesEdit: React.FC = () => {
           {existingRole ? (
             <RolesForm onSubmit={() => {}} />
           ) : (
-            <NotFoundContent>
-              <Typography variant="h5" textAlign="center">
-                Role Not Found!
-              </Typography>
-            </NotFoundContent>
+            <DataNotFound
+              linkTitle="Roles"
+              linkTo="/roles"
+              title="Role not found!"
+            />
           )}
         </BasicCard>
       </Box>
