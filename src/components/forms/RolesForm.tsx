@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 // react hook form
 import { FormProvider, useForm, SubmitHandler } from 'react-hook-form';
 // mui
@@ -11,6 +12,11 @@ import { ICON_NAMES } from '../icons';
 import { IRolesData } from '@/types';
 // libs
 import { generateUniqueId } from '@/libs';
+// config
+import {
+  ROLE_NAME_VALIDATION_RULES,
+  ROLE_DESCRIPTION_VALIDATION_RULES
+} from '@/config/validation';
 
 // ----------------------------------------------------------------
 
@@ -32,8 +38,13 @@ export const RolesForm: React.FC<IRolesDataProps> = ({ role, onSubmit }) => {
     }
   });
 
+  useEffect(() => {
+    console.log('isLoading', methods.formState.isLoading);
+  }, [methods.formState.isLoading]);
+
+  console.log('methods', methods);
+
   const onSubmitForm: SubmitHandler<IRolesFormData> = (data) => {
-    console.log('data', data);
     const { description, roleName } = data;
 
     const roleData: IRolesData = {
@@ -41,18 +52,27 @@ export const RolesForm: React.FC<IRolesDataProps> = ({ role, onSubmit }) => {
       roleName,
       description
     };
-
-    onSubmit(roleData);
+    setTimeout(() => {
+      onSubmit(roleData);
+    }, 2000);
   };
 
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmitForm)}>
         <FormControl sx={{ display: 'block', mb: 2 }}>
-          <RHFTextField name="roleName" label="Role" />
+          <RHFTextField
+            name="roleName"
+            label="Role"
+            rules={ROLE_NAME_VALIDATION_RULES}
+          />
         </FormControl>
         <FormControl sx={{ display: 'block', mb: 5 }}>
-          <RHFTextField name="description" label="Description" />
+          <RHFTextField
+            name="description"
+            label="Description"
+            rules={ROLE_DESCRIPTION_VALIDATION_RULES}
+          />
         </FormControl>
         <Stack spacing={2} gap={2} direction={{ sm: 'row' }}>
           <IconLeftButton icon={ICON_NAMES.create} type="submit">
