@@ -1,11 +1,10 @@
 import axiosFn from 'axios';
 
 export const axios = axiosFn.create({
-  baseURL: '/src/api/data/',
-  // timeout: 1000
-  headers: { Accept: 'application/json' }
+  baseURL: '/src/api/data/'
 });
 
+// ! setup for interceptors but since i work locally there is no need to update them.
 axios.interceptors.request.use(
   function (config) {
     // Do something before request is sent

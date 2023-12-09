@@ -105,7 +105,7 @@ export const BasicUsersPaginationTable: React.FC = () => {
             aria-labelledby="tableTitle"
             size="medium"
           >
-            {users !== undefined && users.length > 60 && (
+            {users !== undefined && users.length > 0 && (
               <TableHeadCustom
                 tableHeadLabels={USERS_TABLE_HEAD_LABELS}
                 numSelected={selected.length}

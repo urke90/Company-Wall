@@ -2,6 +2,8 @@
 import { axios } from '@/api';
 // types
 import { IUsersData } from '@/types';
+// constants
+import { FAKE_API_DELAY } from '@/api';
 
 // ----------------------------------------------------------------
 
@@ -30,6 +32,6 @@ export const fetchUsers = async () => {
   return new Promise<IUsersData[]>((resolve) => {
     setTimeout(() => {
       resolve(response.data);
-    }, 2000);
+    }, FAKE_API_DELAY);
   });
 };

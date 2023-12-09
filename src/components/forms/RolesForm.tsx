@@ -35,14 +35,21 @@ export const RolesForm: React.FC<IRolesDataProps> = ({ role, onSubmit }) => {
     defaultValues: {
       roleName: role ? role.roleName : '',
       description: role ? role.description : ''
-    }
+    },
+    mode: 'onChange'
   });
 
-  useEffect(() => {
-    console.log('isLoading', methods.formState.isLoading);
-  }, [methods.formState.isLoading]);
+  const {
+    formState: { isValid, isLoading, isSubmitting, isSubmitted }
+  } = methods;
 
-  console.log('methods', methods);
+  useEffect(() => {
+    console.log('isValid', isValid);
+    console.log('isLoading', isLoading);
+    console.log('isSubmitting', isSubmitting);
+  }, [isLoading, isValid, isSubmitting]);
+
+  // console.log('methods', methods);
 
   const onSubmitForm: SubmitHandler<IRolesFormData> = (data) => {
     const { description, roleName } = data;
@@ -75,7 +82,11 @@ export const RolesForm: React.FC<IRolesDataProps> = ({ role, onSubmit }) => {
           />
         </FormControl>
         <Stack spacing={2} gap={2} direction={{ sm: 'row' }}>
-          <IconLeftButton icon={ICON_NAMES.create} type="submit">
+          <IconLeftButton
+            icon={ICON_NAMES.create}
+            type="submit"
+            disabled={!isValid}
+          >
             Add
           </IconLeftButton>
           <GoBackButton />
