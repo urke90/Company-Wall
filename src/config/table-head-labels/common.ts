@@ -15,26 +15,3 @@ export interface ITableHeadLabels {
    */
   isSortable: boolean;
 }
-
-export const ROLES_TABLE_HEAD_LABELS: ITableHeadLabels[] = [
-  {
-    id: '1',
-    label: 'ID',
-    isSortable: true
-  },
-  {
-    id: '2',
-    label: 'Role',
-    isSortable: false
-  },
-  {
-    id: '3',
-    label: 'Description',
-    isSortable: false
-  },
-  {
-    id: '4',
-    label: 'Action',
-    isSortable: false
-  }
-];

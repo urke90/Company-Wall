@@ -16,10 +16,16 @@ export const ALPHANUMERIC_REGEX = /^[a-zA-Z0-9_]+$/;
 export const ROLE_NAME_VALIDATION_RULES: RegisterOptions = {
   required: {
     value: true,
-    message: 'Role name must be between 2 and 16 characters!'
+    message: 'Role name is required!'
   },
-  minLength: 2,
-  maxLength: 16,
+  minLength: {
+    value: 2,
+    message: 'Role name must have at least 2 characters!'
+  },
+  maxLength: {
+    value: 16,
+    message: 'Role name must have at least 16 characters!'
+  },
   pattern: {
     value: ALPHANUMERIC_REGEX,
     message: 'Only alphanumeric characters and underscores are allowed!'
