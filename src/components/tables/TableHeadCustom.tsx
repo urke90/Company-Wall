@@ -1,60 +1,52 @@
-import Box from '@mui/material/Box';
+// mui
 import TableCell from '@mui/material/TableCell/TableCell';
 import TableHead from '@mui/material/TableHead/TableHead';
 import TableRow from '@mui/material/TableRow/TableRow';
-import TableSortLabel from '@mui/material/TableSortLabel/TableSortLabel';
 // config
 import { ITableHeadLabels } from '@/config';
 
-type Order = 'asc' | 'desc';
-
+// ----------------------------------------------------------------
 interface ITableHeadCustomProps {
+  /**
+   * Labels for table cells.
+   */
   tableHeadLabels: ITableHeadLabels[];
-  numSelected?: number;
-  onRequestSort?: (
-    event: React.MouseEvent<unknown>,
-    property: keyof unknown
-  ) => void;
-  order?: Order;
-  orderBy?: string;
-  rowCount?: number;
 }
 
+/**
+ * `TableHeadCustom` is a React functional component that renders a table header.
+ * It uses Material-UI components to create a styled table head.
+ *
+ * The component takes a single prop, `tableHeadLabels`, which is an array of objects
+ * defining the labels and identifiers for each column of the table.
+ *
+ * @component
+ * @param {Object} props - The props for the component.
+ * @param {ITableHeadLabels[]} props.tableHeadLabels - An array of objects, where each object
+ * represents a column header in the table. Each object should have an `id` to use as a key
+ * and a `label` that will be displayed as the column header.
+ *
+ * @example
+ * ```jsx
+ * const headLabels = [
+ *   { id: 'name', label: 'Name' },
+ *   { id: 'age', label: 'Age' },
+ *   // ... other labels
+ * ];
+ *
+ * <TableHeadCustom tableHeadLabels={headLabels} />
+ * ```
+ *
+ * @returns The `TableHead` component with a row of table cells, each containing a label from `tableHeadLabels`.
+ */
 export const TableHeadCustom: React.FC<ITableHeadCustomProps> = ({
-  order,
-  orderBy,
-  numSelected,
-  rowCount,
   tableHeadLabels
 }) => {
-  // const createSortHandler =
-  //   (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
-  //     onRequestSort(event, property);
-  //   };
-
   return (
     <TableHead>
       <TableRow>
-        {tableHeadLabels.map((headCell) => (
-          <TableCell
-            key={headCell.id}
-            //   align={headCell.numeric ? 'right' : 'left'}
-            //   padding={headCell.disablePadding ? 'none' : 'normal'}
-            //   sortDirection={orderBy === headCell.id ? order : false}
-          >
-            <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : 'asc'}
-              // onClick={createSortHandler(headCell.id)}
-            >
-              {headCell.label}
-              {orderBy === headCell.id ? (
-                <Box component="span">
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                </Box>
-              ) : null}
-            </TableSortLabel>
-          </TableCell>
+        {tableHeadLabels.map(({ id, label }) => (
+          <TableCell key={id}>{label}</TableCell>
         ))}
       </TableRow>
     </TableHead>
