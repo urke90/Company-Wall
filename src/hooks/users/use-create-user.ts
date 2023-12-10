@@ -4,24 +4,22 @@ import { useAppContext } from '@/hooks';
 // ----------------------------------------------------------------
 
 /**
- * Custom React hook for handling role creation functionalities.
+ * Custom React hook for handling user creation functionalities.
  *
- * This hook utilizes the context provided by `useAppContext` to
- * access and execute actions related to role management. It
- * simplifies the process of adding roles and handling errors
- * within the components where it's used.
+ * This hook leverages the context provided by `useAppContext` to access and execute actions related
+ * to user management. It provides functionalities to add a new user and to access the current list
+ * of roles, thereby simplifying the user creation process and the handling of related data within
+ * the components where it is used.
  *
  * @returns {Object} An object containing:
- *   - `onAddRole`: Function to add a new role.
- *   - `error`: Current error state, if any, during role creation.
- *   - `onClearError`: Function to clear the current error.
+ *   - `onAddUser`: Function to add a new user.
+ *   - `roles`: The current list of available roles.
  */
 export const useCreateUser = () => {
-  const { onAddRole, error, onClearError } = useAppContext();
+  const { onAddUser, roles } = useAppContext();
 
   return {
-    onAddRole,
-    error,
-    onClearError
+    onAddUser,
+    roles
   };
 };

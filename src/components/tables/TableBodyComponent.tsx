@@ -17,7 +17,7 @@ interface ITableBodyComponent {
    * The rows to be rendered inside the table body.
    * Expected to be ReactNode elements.
    */
-  rows: React.ReactNode;
+  rows: React.ReactNode | React.ReactNode[];
   /**
    * Flag to indicate if there is data available to display.
    */

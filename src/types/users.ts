@@ -12,6 +12,10 @@ export interface IUsersData {
    */
   lastName: string;
   /**
+   * The email address of the user.
+   */
+  email: string;
+  /**
    * The role assigned to the user.
    */
   role: string;

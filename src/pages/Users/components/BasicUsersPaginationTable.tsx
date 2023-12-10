@@ -5,14 +5,19 @@ import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
-// import { visuallyHidden } from '@mui/utils';
+import Stack from '@mui/material/Stack';
 // config
 import { USERS_TABLE_HEAD_LABELS } from '@/config';
-import { FETCH_USERS } from '@/libs';
 // hooks
-import { useAppContext, useFetchUsers, useUsersPagination } from '@/hooks';
+import { useUsersPagination } from '@/hooks';
 // components
-import { TableHeadCustom, TableContent } from '@/components';
+import {
+  TableHeadCustom,
+  LinkIconLeftButton,
+  ICON_NAMES,
+  TableBodyComponent
+} from '@/components';
+// pages specific components
 import { UsersTableRows } from '@/pages';
 
 // ----------------------------------------------------------------
@@ -64,18 +69,15 @@ type Order = 'asc' | 'desc';
 export const BasicUsersPaginationTable: React.FC = () => {
   const [order, setOrder] = useState<Order>('asc');
   const [orderBy, setOrderBy] = useState('calories');
-  const [selected, setSelected] = useState<readonly number[]>([]);
-
-  const { isLoading, isError } = useFetchUsers(FETCH_USERS);
-
-  const { onSetRoles } = useAppContext();
 
   const {
     users,
     handleChangePage,
     handleChangeRowsPerPage,
     page,
-    rowsPerPage
+    rowsPerPage,
+    isLoading,
+    isError
   } = useUsersPagination();
 
   // const handleRequestSort = (
@@ -108,16 +110,16 @@ export const BasicUsersPaginationTable: React.FC = () => {
             {users !== undefined && users.length > 0 && (
               <TableHeadCustom
                 tableHeadLabels={USERS_TABLE_HEAD_LABELS}
-                numSelected={selected.length}
                 order={order}
                 // orderBy={orderBy}
                 // onRequestSort={handleRequestSort}
                 // rowCount={rows.length}
               />
             )}
-            <TableContent
+            <TableBodyComponent
               isLoading={isLoading}
               isError={isError}
+              hasData={usersRows !== undefined && usersRows.length > 0}
               rows={usersRows?.map(({ id, firstName, lastName, role }) => (
                 <UsersTableRows
                   key={id}
@@ -130,16 +132,30 @@ export const BasicUsersPaginationTable: React.FC = () => {
             />
           </Table>
         </TableContainer>
-        {!isLoading && users !== undefined && users.length > 10 && (
-          <TablePagination
-            rowsPerPageOptions={[2, 4, 6, 8, 10]}
-            component="div"
-            count={users.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
+        {!isLoading && (
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+            sx={{ mb: 6 }}
+          >
+            <Box sx={{ width: '15rem' }}>
+              <LinkIconLeftButton to="new" icon={ICON_NAMES.create}>
+                Add User
+              </LinkIconLeftButton>
+            </Box>
+            {users !== undefined && users.length > 10 && (
+              <TablePagination
+                rowsPerPageOptions={[2, 4, 6, 8, 10]}
+                component="div"
+                count={users.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            )}
+          </Stack>
         )}
       </Paper>
     </Box>

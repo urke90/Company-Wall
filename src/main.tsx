@@ -5,7 +5,7 @@ import { RouterProvider } from 'react-router-dom';
 // react query
 import { QueryClientProvider } from '@/libs';
 // context
-import { AppContextProvider } from '@/components';
+import { AppContextProvider } from '@/context';
 // router
 import { router } from '@/router';
 // theme

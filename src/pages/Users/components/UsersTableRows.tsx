@@ -35,7 +35,34 @@ import { IUsersData } from '@/types';
  *   role="Administrator"
  * />
  */
-export const UsersTableRows: React.FC<IUsersData> = ({
+
+interface IUsersTableRowsData {
+  /**
+   * The unique identifier for the user.
+   */
+  id: string;
+  /**
+   * The first name of the user.
+   */
+  firstName: string;
+  /**
+   * The last name of the user.
+   */
+  lastName: string;
+  /**
+   * The email address of the user.
+   */
+  email?: string;
+  /**
+   * The role assigned to the user.
+   */
+  role: string;
+  /**
+   * An index signature to allow additional properties of type string or number.
+   */
+}
+
+export const UsersTableRows: React.FC<IUsersTableRowsData> = ({
   firstName,
   lastName,
   id,
