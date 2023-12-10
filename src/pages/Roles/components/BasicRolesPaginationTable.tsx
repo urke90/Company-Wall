@@ -22,8 +22,7 @@ import { RolesTableRows } from '@/pages';
 // ----------------------------------------------------------------
 
 export const BasicRolesPaginationTable: React.FC = () => {
-  const { getComparator, handleRequestSort, order, orderBy, stableSort } =
-    useRolesTableSort();
+  const { getComparator, order, orderBy, stableSort } = useRolesTableSort();
 
   const {
     roles,

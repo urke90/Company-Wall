@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 // types
 import { IUsersData } from '@/types';
 
@@ -29,32 +29,37 @@ export const useUsersTableSort = () => {
     return 0;
   };
 
-  const getComparator = <Key extends keyof IUsersData>(
-    order: Order,
-    orderBy: Key
-  ): ((
-    a: { [key in Key]: number | string },
-    b: { [key in Key]: number | string }
-  ) => number) => {
-    return order === 'desc'
-      ? (a, b) => descendingComparator(a, b, orderBy)
-      : (a, b) => -descendingComparator(a, b, orderBy);
-  };
+  const getComparator = useCallback(
+    <Key extends keyof IUsersData>(
+      order: Order,
+      orderBy: Key
+    ): ((
+      a: { [key in Key]: number | string },
+      b: { [key in Key]: number | string }
+    ) => number) => {
+      return order === 'desc'
+        ? (a, b) => descendingComparator(a, b, orderBy)
+        : (a, b) => -descendingComparator(a, b, orderBy);
+    },
+    []
+  );
 
-  const stableSort = <T>(
-    array: readonly T[],
-    comparator: (a: T, b: T) => number
-  ): T[] => {
-    const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
-    stabilizedThis.sort((a, b) => {
-      const order = comparator(a[0], b[0]);
-      if (order !== 0) {
-        return order;
-      }
-      return a[1] - b[1];
-    });
-    return stabilizedThis.map((el) => el[0]);
-  };
+  const stableSort = useCallback(
+    <T>(array: readonly T[], comparator: (a: T, b: T) => number): T[] => {
+      const stabilizedThis = array.map(
+        (el, index) => [el, index] as [T, number]
+      );
+      stabilizedThis.sort((a, b) => {
+        const order = comparator(a[0], b[0]);
+        if (order !== 0) {
+          return order;
+        }
+        return a[1] - b[1];
+      });
+      return stabilizedThis.map((el) => el[0]);
+    },
+    []
+  );
 
   return { stableSort, getComparator, handleRequestSort, order, orderBy };
 };

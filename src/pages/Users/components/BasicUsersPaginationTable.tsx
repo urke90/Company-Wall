@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 // mui
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack';
 // config
 import { USERS_TABLE_HEAD_LABELS } from '@/config';
 // hooks
-import { useUsersPagination } from '@/hooks';
+import { useUsersPagination, useUsersTableSort } from '@/hooks';
 // components
 import {
   TableHeadCustom,
@@ -22,53 +22,26 @@ import { UsersTableRows } from '@/pages';
 
 // ----------------------------------------------------------------
 
-function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
-  if (b[orderBy] < a[orderBy]) {
-    return -1;
-  }
-  if (b[orderBy] > a[orderBy]) {
-    return 1;
-  }
-  return 0;
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getComparator<Key extends keyof any>(
-  order: Order,
-  orderBy: Key
-): (
-  a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string }
-) => number {
-  return order === 'desc'
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy);
-}
-
-// Since 2020 all major browsers ensure sort stability with Array.prototype.sort().
-// stableSort() brings sort stability to non-modern browsers (notably IE11). If you
-// only support modern browsers you can replace stableSort(exampleArray, exampleComparator)
-// with exampleArray.slice().sort(exampleComparator)
-function stableSort<T>(
-  array: readonly T[],
-  comparator: (a: T, b: T) => number
-) {
-  const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
-  stabilizedThis.sort((a, b) => {
-    const order = comparator(a[0], b[0]);
-    if (order !== 0) {
-      return order;
-    }
-    return a[1] - b[1];
-  });
-  return stabilizedThis.map((el) => el[0]);
-}
-
-type Order = 'asc' | 'desc';
-
+/**
+ * `BasicUsersPaginationTable` is a React functional component that renders a table
+ * with user data, incorporating features like sorting and pagination.
+ *
+ * This component uses Material-UI components for UI rendering and custom hooks for managing
+ * state and logic related to sorting (`useUsersTableSort`) and pagination (`useUsersPagination`).
+ * It also uses the `TableHeadCustom` and `TableBodyComponent` for rendering the table's head
+ * and body, respectively, along with `UsersTableRows` for individual row rendering.
+ *
+ * @component
+ * @example
+ * ```jsx
+ * <BasicUsersPaginationTable />
+ * ```
+ *
+ * @returns A component that displays a table with user data, equipped with sorting,
+ * pagination, and actions like adding a new user.
+ */
 export const BasicUsersPaginationTable: React.FC = () => {
-  const [order, setOrder] = useState<Order>('asc');
-  const [orderBy, setOrderBy] = useState('calories');
+  const { stableSort, getComparator, order, orderBy } = useUsersTableSort();
 
   const {
     users,
@@ -80,22 +53,13 @@ export const BasicUsersPaginationTable: React.FC = () => {
     isError
   } = useUsersPagination();
 
-  // const handleRequestSort = (
-  //   event: React.MouseEvent<unknown>,
-  //   property: keyof Data
-  // ) => {
-  //   const isAsc = orderBy === property && order === 'asc';
-  //   setOrder(isAsc ? 'desc' : 'asc');
-  //   setOrderBy(property);
-  // };
-
   const usersRows = useMemo(
     () =>
       stableSort(users, getComparator(order, orderBy)).slice(
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage
       ),
-    [order, orderBy, page, rowsPerPage, users]
+    [order, orderBy, page, rowsPerPage, users, getComparator, stableSort]
   );
 
   return (
@@ -108,13 +72,7 @@ export const BasicUsersPaginationTable: React.FC = () => {
             size="medium"
           >
             {users !== undefined && users.length > 0 && (
-              <TableHeadCustom
-                tableHeadLabels={USERS_TABLE_HEAD_LABELS}
-                order={order}
-                // orderBy={orderBy}
-                // onRequestSort={handleRequestSort}
-                // rowCount={rows.length}
-              />
+              <TableHeadCustom tableHeadLabels={USERS_TABLE_HEAD_LABELS} />
             )}
             <TableBodyComponent
               isLoading={isLoading}

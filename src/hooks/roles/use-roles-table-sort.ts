@@ -69,5 +69,5 @@ export const useRolesTableSort = () => {
     []
   );
 
-  return { stableSort, getComparator, handleRequestSort, order, orderBy };
+  return { stableSort, getComparator, order, orderBy };
 };
