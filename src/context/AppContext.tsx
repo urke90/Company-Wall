@@ -39,6 +39,7 @@ export const AppContext = createContext<IAppContext>({
 export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children
 }) => {
+  console.log('CONTEXT RENDERED');
   const { isLoading, data, isError } = useQuery<IData>({
     queryKey: [FETCH_DATA],
     queryFn: fetchRolesAndUsers,
@@ -50,13 +51,13 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (data && roles.length === 0) {
+    if (data) {
       setRoles(data.roles);
     }
-    if (data && users.length === 0) {
+    if (data) {
       setUsers(data.users);
     }
-  }, [data, roles, users]);
+  }, [data]);
 
   // ROLES ACTIONS
   const onAddRole = useCallback((newRole: IRolesData) => {

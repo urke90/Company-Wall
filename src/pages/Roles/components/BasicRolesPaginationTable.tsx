@@ -41,8 +41,8 @@ export const BasicRolesPaginationTable: React.FC = () => {
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage
       ),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [order, orderBy, page, rowsPerPage, roles]
+
+    [order, orderBy, page, rowsPerPage, roles, getComparator, stableSort]
   );
 
   return (
@@ -54,13 +54,7 @@ export const BasicRolesPaginationTable: React.FC = () => {
             aria-labelledby="tableTitle"
             size="medium"
           >
-            <TableHeadCustom
-              tableHeadLabels={ROLES_TABLE_HEAD_LABELS}
-              order={order}
-              orderBy={orderBy}
-              onRequestSort={handleRequestSort}
-              rowCount={rolesRows.length}
-            />
+            <TableHeadCustom tableHeadLabels={ROLES_TABLE_HEAD_LABELS} />
             <TableBodyComponent
               isLoading={isLoading}
               isError={isError}
@@ -76,29 +70,31 @@ export const BasicRolesPaginationTable: React.FC = () => {
             />
           </Table>
         </TableContainer>
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-          sx={{ mb: 6 }}
-        >
-          <Box sx={{ width: '15rem' }}>
-            <LinkIconLeftButton to="new" icon={ICON_NAMES.create}>
-              Add Role
-            </LinkIconLeftButton>
-          </Box>
-          {roles !== undefined && roles.length > 0 && (
-            <TablePagination
-              rowsPerPageOptions={[2, 4, 6, 8, 10]}
-              component="div"
-              count={roles.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          )}
-        </Stack>
+        {!isLoading && (
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+            sx={{ mb: 6 }}
+          >
+            <Box sx={{ width: '15rem' }}>
+              <LinkIconLeftButton to="new" icon={ICON_NAMES.create}>
+                Add Role
+              </LinkIconLeftButton>
+            </Box>
+            {roles !== undefined && roles.length > 10 && (
+              <TablePagination
+                rowsPerPageOptions={[2, 4, 6, 8, 10]}
+                component="div"
+                count={roles.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            )}
+          </Stack>
+        )}
       </Paper>
     </Box>
   );
