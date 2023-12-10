@@ -10,9 +10,24 @@ import { useUpdateUser } from '@/hooks';
 
 // ----------------------------------------------------------------
 
+/**
+ * The `UsersEdit` component is a functional component used for editing user details.
+ * It utilizes React Router's `useParams` to retrieve the user ID from the URL parameters.
+ * Material-UI components are used for layout and styling.
+ *
+ * This component uses the `useUpdateUser` hook to access the list of users, the `onUpdateUser` function
+ * for handling user updates, and the list of roles. It displays a `UsersForm` pre-filled with the existing
+ * user's data for editing. In case the user is not found, it shows a `DataNotFound` component.
+ *
+ * @component
+ * @example
+ * return (
+ *   <UsersEdit />
+ * )
+ */
 export const UsersEdit: React.FC = () => {
   const { userId } = useParams<{ userId: string }>();
-  const { users, onUpdateRole } = useUpdateUser();
+  const { users, onUpdateUser, roles } = useUpdateUser();
 
   const existingUser = users.find((user) => user.id === userId);
 
@@ -35,7 +50,11 @@ export const UsersEdit: React.FC = () => {
           }}
         >
           {existingUser ? (
-            <UsersForm onSubmit={() => {}} user={existingUser} />
+            <UsersForm
+              onSubmit={onUpdateUser}
+              user={existingUser}
+              roles={roles}
+            />
           ) : (
             <DataNotFound
               linkTitle="Users"

@@ -8,12 +8,17 @@ import Paper from '@mui/material/Paper';
 // import { visuallyHidden } from '@mui/utils';
 // config
 import { ROLES_TABLE_HEAD_LABELS } from '@config/table-head-labels';
-import { FETCH_ROLES } from '@/libs';
 // hooks
-import { useAppContext, useFetchRoles, useRolesPagination } from '@/hooks';
+import { useAppContext, useRolesPagination } from '@/hooks';
 // components
-import { TableHeadCustom, TableContent } from '@/components';
+import {
+  TableHeadCustom,
+  TableBodyComponent,
+  LinkIconLeftButton,
+  ICON_NAMES
+} from '@/components';
 import { RolesTableRows } from '@/pages';
+import Stack from '@mui/material/Stack';
 
 // ----------------------------------------------------------------
 
@@ -66,16 +71,14 @@ export const BasicRolesPaginationTable: React.FC = () => {
   const [orderBy, setOrderBy] = useState('calories');
   const [selected, setSelected] = useState<readonly number[]>([]);
 
-  const { isLoading, isError } = useFetchRoles(FETCH_ROLES);
-
-  const { onSetRoles } = useAppContext();
-
   const {
     roles,
     handleChangePage,
     handleChangeRowsPerPage,
     page,
-    rowsPerPage
+    rowsPerPage,
+    isLoading,
+    isError
   } = useRolesPagination();
 
   // const handleRequestSort = (
@@ -105,19 +108,18 @@ export const BasicRolesPaginationTable: React.FC = () => {
             aria-labelledby="tableTitle"
             size="medium"
           >
-            {roles !== undefined && roles.length > 0 && (
-              <TableHeadCustom
-                tableHeadLabels={ROLES_TABLE_HEAD_LABELS}
-                numSelected={selected.length}
-                order={order}
-                // orderBy={orderBy}
-                // onRequestSort={handleRequestSort}
-                // rowCount={rows.length}
-              />
-            )}
-            <TableContent
+            <TableHeadCustom
+              tableHeadLabels={ROLES_TABLE_HEAD_LABELS}
+              numSelected={selected.length}
+              order={order}
+              // orderBy={orderBy}
+              // onRequestSort={handleRequestSort}
+              // rowCount={rows.length}
+            />
+            <TableBodyComponent
               isLoading={isLoading}
               isError={isError}
+              hasData={rolesRows !== undefined && rolesRows.length > 0}
               rows={rolesRows?.map(({ description, id, roleName }) => (
                 <RolesTableRows
                   key={id}
@@ -129,17 +131,29 @@ export const BasicRolesPaginationTable: React.FC = () => {
             />
           </Table>
         </TableContainer>
-        {!isLoading && roles !== undefined && roles.length > 10 && (
-          <TablePagination
-            rowsPerPageOptions={[2, 4, 6, 8, 10]}
-            component="div"
-            count={roles.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        )}
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+          sx={{ mb: 6 }}
+        >
+          <Box sx={{ width: '15rem' }}>
+            <LinkIconLeftButton to="new" icon={ICON_NAMES.create}>
+              Add Role
+            </LinkIconLeftButton>
+          </Box>
+          {roles !== undefined && roles.length > 0 && (
+            <TablePagination
+              rowsPerPageOptions={[2, 4, 6, 8, 10]}
+              component="div"
+              count={roles.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+          )}
+        </Stack>
       </Paper>
     </Box>
   );

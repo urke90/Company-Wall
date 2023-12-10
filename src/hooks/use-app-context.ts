@@ -1,7 +1,7 @@
 // react
 import { useContext } from 'react';
 // context
-import { AppContext } from '@/components';
+import { AppContext } from '@/context';
 
 // ----------------------------------------------------------------
 

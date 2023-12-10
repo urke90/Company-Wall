@@ -98,3 +98,9 @@ export const USERS_EMAIL_RULES: RegisterOptions = {
     message: 'User last name must be between 2 and 20 characters!'
   }
 };
+export const USERS_ROLE_RULES: RegisterOptions = {
+  required: {
+    value: true,
+    message: 'Role is required!'
+  }
+};

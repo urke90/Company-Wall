@@ -1,9 +1,10 @@
 // react hook form
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext, RegisterOptions } from 'react-hook-form';
 // mui
 import InputLabel from '@mui/material/InputLabel';
 import Select, { SelectProps } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import Box from '@mui/material/Box';
 
 interface ISelectOptions {
   value: string;
@@ -12,16 +13,12 @@ interface ISelectOptions {
 
 interface IRHFSelectProps extends SelectProps {
   name: string;
-  inputLabelText: string;
-  onChangeValue?: (val: string) => void;
   selectOptions: ISelectOptions[];
-  rules?: any;
+  rules?: RegisterOptions;
 }
 
 export const RHFSelect: React.FC<IRHFSelectProps> = ({
   name,
-  inputLabelText,
-  onChangeValue,
   selectOptions,
   rules,
   ...rest
@@ -34,29 +31,22 @@ export const RHFSelect: React.FC<IRHFSelectProps> = ({
       control={control}
       rules={rules}
       render={({ field, fieldState: { error } }) => (
-        <>
-          <InputLabel id="rhf-select-label">{inputLabelText}</InputLabel>
-          <Select
-            {...field}
-            labelId="rhf-select-label"
-            id="rhf-select"
-            value={selectOptions[0].value}
-            label="Age"
-            onChange={(e) => {
-              field.onChange(e);
-              if (onChangeValue) {
-                onChangeValue(e.target.value as string);
-              }
-            }}
-            {...rest}
-          >
-            {selectOptions.map(({ text, value }) => (
-              <MenuItem key={value} value={value}>
-                {text}
-              </MenuItem>
-            ))}
-          </Select>
-        </>
+        <Select
+          {...field}
+          labelId="rhf-select-label"
+          id="rhf-select"
+          value={field.value}
+          onChange={(e) => {
+            field.onChange(e);
+          }}
+          {...rest}
+        >
+          {selectOptions.map(({ text, value }) => (
+            <MenuItem key={value} value={value}>
+              {text}
+            </MenuItem>
+          ))}
+        </Select>
       )}
     />
   );

@@ -25,7 +25,7 @@ export const useUsersPagination = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  const { users } = useAppContext();
+  const { users, isLoading, isError } = useAppContext();
 
   const handleChangePage = (
     _: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
@@ -46,6 +46,8 @@ export const useUsersPagination = () => {
     page,
     rowsPerPage,
     handleChangePage,
-    handleChangeRowsPerPage
+    handleChangeRowsPerPage,
+    isLoading,
+    isError
   };
 };

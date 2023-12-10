@@ -14,8 +14,6 @@ export const RolesEdit: React.FC = () => {
   const { roleId } = useParams<{ roleId: string }>();
   const { roles, onUpdateRole } = useUpdateRole();
 
-  console.log('roleId', roleId);
-
   const existingRole = roles.find((role) => role.id === roleId);
 
   return (
@@ -37,7 +35,7 @@ export const RolesEdit: React.FC = () => {
           }}
         >
           {existingRole ? (
-            <RolesForm onSubmit={() => {}} role={existingRole} />
+            <RolesForm onSubmit={onUpdateRole} role={existingRole} />
           ) : (
             <DataNotFound
               linkTitle="Roles"
